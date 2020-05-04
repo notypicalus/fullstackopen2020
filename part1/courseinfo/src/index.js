@@ -1,29 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// Refactor the code so it consists of three new components: Header, Content, Total
+
+const Header = (props) => {
+  return (<div><h1>{props.course}</h1></div>)
+}
+
+const Content = (props) => {
+return (<div><h1>{props.number}</h1></div>)
+}
 
 const App = () => {
-  const course = 'Half Stack application development'
-  const part1 = 'Fundamentals of React'
-  const exercises1 = 10
-  const part2 = 'Using props to pass data'
-  const exercises2 = 7
-  const part3 = 'State of a component'
-  const exercises3 = 14
+  
+  const course = {
+  part1: 'Fundamentals of React',
+  part2: 'Using props to pass data',
+  part3: 'State of a component'
+  }
+  
+  const number = {
+  exercises1: 10,
+  exercises2: 7,
+  exercises3: 14
+}
 
   return (
     <div>
-      <h1>{course}</h1>
-      <p>
-        {part1} {exercises1}
-      </p>
-      <p>
-        {part2} {exercises2}
-      </p>
-      <p>
-        {part3} {exercises3}
-      </p>
-      <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
+    <Header course = {props.course}/>
+    <Content parts= {props.parts} />
+    <Total number = {exercises1 + exercises2 + exercises3}/>
     </div>
   )
 }
