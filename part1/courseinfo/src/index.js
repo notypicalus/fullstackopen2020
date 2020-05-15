@@ -1,31 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Content from './components/Content'
+import './index.css';
 import Header from './components/Header'
+import Content from './components/Content'
 import Total from './components/Total'
 
 const App = () => {
   const course = 'Half Stack application development'
-  const part1 = "Fundamentals of React";
-  const exercises1 = 10;
-  const part2 = "Using props to pass data";
-  const exercises2 = 7;
-  const part3 = "State of a component";
-  const exercises3 = 14;
+  const part1 = {
+    name: 'Fundamentals of React',
+    exercises: 10
+  }
+  const part2 = {
+    name: 'Using props to pass data',
+    exercises: 7
+  }
+  const part3 = {
+    name: 'State of a component',
+    exercises: 14
+  }
 
-  const parts = [
-    { name: part1, count: exercises1, id: 1 },
-    { name: part2, count: exercises2, id: 2},
-    { name: part3, count: exercises3, id: 3},
-  ];
+
+  const exercise1 = part1.exercises
+  const exercise2 = part2.exercises
+  const exercise3 = part3.exercises
+
+  const exercises = [exercise1, exercise2, exercise3]
+
 
   return (
     <div>
-    <Header course = {course}/>  
-    <Content parts = {parts} />
-    <Total totalExercise = {exercises1 + exercises2 + exercises3}/>
-    </div>
+      <Header name={part1.name + part2.name + part3.name} course={course}/>
+      <Content exercises={exercises}/>
+      <Total count={part1.exercises + part2.exercises + part3.exercises}/>
+      </div>
   )
 }
 
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App />,document.getElementById('root'));
